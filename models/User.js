@@ -1,4 +1,4 @@
-import { Schema, model } from 'mongoose';
+import { Schema, model, models } from 'mongoose';
 import bcrypt from 'bcrypt';
 
 const UserSchema = new Schema({
@@ -53,4 +53,4 @@ UserSchema.methods.checkPasword = async function (input) {
 
 const User = model('User', UserSchema);
 
-export default User;
+export default models.User || User;

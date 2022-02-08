@@ -5,6 +5,7 @@ import {
   Container,
   IconButton,
   Menu,
+  MenuItem,
   Toolbar,
   Typography,
 } from '@mui/material';
@@ -44,9 +45,36 @@ export default function ButtonAppBar() {
               color='inherit'>
               <MenuIcon />
             </IconButton>
-            <Menu id='menu-appbar' anchorEl={anchorElNav}>
-              
+            <Menu
+              id='menu-appbar'
+              anchorEl={anchorElNav}
+              anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
+              keepMounted
+              transformOrigin={{ vertical: 'top', horizontal: 'left' }}
+              open={Boolean(anchorElNav)}
+              onClose={ handleCloseNavMenu }
+              sx={{ display: { xs: 'block', md: 'none' } }}>
+              <MenuItem onClick={handleCloseNavMenu}>
+                <Typography textAlign={'center'}>Login</Typography>
+              </MenuItem>
             </Menu>
+          </Box>
+          <Typography
+            variant='h6'
+            noWrap
+            component={'div'}
+            sx={{
+              flexGrow: 1,
+              display: { xs: 'flex', md: 'none' },
+            }}>
+            Chatter
+          </Typography>
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+            <Button
+              onClick={handleCloseNavMenu}
+              sx={{ my: 2, color: 'white', display: 'block' }}>
+              Login
+            </Button>
           </Box>
         </Toolbar>
       </Container>

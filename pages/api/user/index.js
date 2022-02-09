@@ -1,5 +1,5 @@
-import dbConnect from '../../lib/dbConnect';
-import User from '../../models/User';
+import dbConnect from '../../../lib/dbConnect';
+import User from '../../../models/User';
 
 export default async function handler(req, res) {
   const { method } = req;
@@ -9,8 +9,8 @@ export default async function handler(req, res) {
   switch (method) {
     case 'GET':
       try {
-        const users = await User.find({});
-        res.status(200).json({ success: true, data: users });
+        const user = await User.find({});
+        res.status(200).json({ success: true, data: user });
       } catch (error) {
         res.status(400).json({ success: false });
       }

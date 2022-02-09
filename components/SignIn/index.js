@@ -1,14 +1,20 @@
 import { LockOutlined } from '@mui/icons-material';
-import { Avatar, Box, Container, CssBaseline, Typography } from '@mui/material';
+import {
+  Avatar,
+  Box,
+  Container,
+  CssBaseline,
+  TextField,
+  Typography,
+} from '@mui/material';
 
 export default function SignIn() {
-  
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
 
     console.log({
-      username: data.get('username'),
+      email: data.get('email'),
       password: data.get('password'),
     });
   };
@@ -33,7 +39,18 @@ export default function SignIn() {
           component={'form'}
           onSubmit={handleSubmit}
           noValidate
-          sx={{ mt: 1 }}></Box>
+          sx={{ mt: 1 }}>
+          <TextField
+            margin='normal'
+            required
+            fullWidth
+            id='email'
+            label='Email Address'
+            name='email'
+            autoComplete='email'
+            autoFocus
+          />
+        </Box>
       </Box>
     </Container>
   );

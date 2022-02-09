@@ -50,6 +50,16 @@ export default function SignIn() {
             autoComplete='email'
             autoFocus
           />
+          <TextField
+            margin='normal'
+            required
+            fullWidth
+            name='password'
+            label='password'
+            type={'password'}
+            id='password'
+            autoComplete='current-password'
+          />
         </Box>
       </Box>
     </Container>

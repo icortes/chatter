@@ -52,7 +52,7 @@ export default function ButtonAppBar() {
               keepMounted
               transformOrigin={{ vertical: 'top', horizontal: 'left' }}
               open={Boolean(anchorElNav)}
-              onClose={ handleCloseNavMenu }
+              onClose={handleCloseNavMenu}
               sx={{ display: { xs: 'block', md: 'none' } }}>
               <MenuItem onClick={handleCloseNavMenu}>
                 <Typography textAlign={'center'}>Login</Typography>

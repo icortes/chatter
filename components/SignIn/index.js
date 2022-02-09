@@ -2,8 +2,13 @@ import { LockOutlined } from '@mui/icons-material';
 import {
   Avatar,
   Box,
+  Button,
+  Checkbox,
   Container,
   CssBaseline,
+  FormControlLabel,
+  Grid,
+  Link,
   TextField,
   Typography,
 } from '@mui/material';
@@ -60,6 +65,24 @@ export default function SignIn() {
             id='password'
             autoComplete='current-password'
           />
+          <FormControlLabel
+            control={<Checkbox value='remember' color='primary' />}
+            label='Remember me'
+          />
+          <Button
+            type='submit'
+            fullWidth
+            variant='contained'
+            sx={{ mt: 3, mb: 2 }}>
+            Sign In
+          </Button>
+          <Grid container>
+            <Grid item xs>
+              <Link href='/signup' variant='body2'>
+                {"Don't have an account? Sign Up"}
+              </Link>
+            </Grid>
+          </Grid>
         </Box>
       </Box>
     </Container>

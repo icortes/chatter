@@ -17,6 +17,7 @@ export default function SignUp() {
     const data = new FormData(event.currentTarget);
 
     console.log({
+      name: `${data.get('firstName')} ${data.get('lastName')}`,
       email: data.get('email'),
       password: data.get('password'),
     });

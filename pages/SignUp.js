@@ -1,6 +1,7 @@
 import {
   Avatar,
   Box,
+  Button,
   Container,
   CssBaseline,
   Grid,
@@ -63,7 +64,35 @@ export default function SignUp() {
                 autoComplete='family-name'
               />
             </Grid>
+            <Grid item xs={12}>
+              <TextField
+                required
+                fullWidth
+                id='email'
+                label='Email Address'
+                name='email'
+                autoComplete='email'
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                required
+                fullWidth
+                name='password'
+                label='Password'
+                type={'password'}
+                id='password'
+                autoComplete='new-password'
+              />
+            </Grid>
           </Grid>
+          <Button
+            type='submit'
+            fullWidth
+            variant='contained'
+            sx={{ mt: 3, mb: 2 }}>
+            Sign Up
+          </Button>
         </Box>
       </Box>
     </Container>

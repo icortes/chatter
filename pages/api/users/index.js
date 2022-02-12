@@ -1,11 +1,16 @@
 import dbConnect from '../../../lib/dbConnect';
-import User from '../../../models/User';
+const { model } = require('mongoose');
 
-export default async function handler(req, res) {
+import apiHandler from '../../../helpers/api/api-handler';
+
+export default apiHandler(handler);
+
+async function handler(req, res) {
   const { method } = req;
+  const User = model('User');
 
   await dbConnect();
-
+  
   switch (method) {
     case 'GET':
       try {

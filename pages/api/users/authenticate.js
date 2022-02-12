@@ -4,7 +4,7 @@ import getConfig from 'next/config';
 import dbConnect from '../../../lib/dbConnect';
 import User from '../../../models/User';
 
-import { apiHandler } from '../../../helpers/api/api-handler';
+import apiHandler from '../../../helpers/api/api-handler';
 
 const { serverRuntimeConfig } = getConfig();
 
@@ -34,7 +34,7 @@ async function handler(req, res) {
     return res.status(200).json({
       id: user.id,
       username: user.username,
-      fistName: user.fistName,
+      firstName: user.fistName,
       lastName: user.lastName,
       token,
     });

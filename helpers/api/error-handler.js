@@ -6,7 +6,7 @@ export default function errorHandler(err, res) {
 
   if (err.name === 'UnauthorizedError') {
     //jwt authentication error
-    return res.status(401).json({ nessage: 'Invalid Token' });
+    return res.status(401).json({ message: 'Invalid Token' });
   }
 
   //default to 500 server error

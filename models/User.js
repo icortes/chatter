@@ -8,6 +8,20 @@ const UserSchema = new Schema({
     required: true,
     validate: [({ length }) => length >= 2, 'Username too short'],
   },
+  email: {
+    type: String,
+    unique: true,
+    required: true,
+    match: [/[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/, 'Bad email provided'],
+  },
+  firstName: {
+    type: String,
+    required: true,
+  },
+  lastName: {
+    type: String,
+    required: true,
+  },
   password: {
     type: String,
     required: true,

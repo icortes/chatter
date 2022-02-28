@@ -27,6 +27,14 @@ function post(url, body) {
   return fetch(url, requestOptions).then(handleResponse);
 }
 
+function put(url, body) {
+  const requestOptions = {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json', ...authHeader(url) },
+  };
+  return fetch(url, requestOptions).then(handleResponse);
+}
+
 /*************************helper functions **********************/
 
 // return auth header with jwt if user is logged in and request is to the api url

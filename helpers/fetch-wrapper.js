@@ -9,6 +9,14 @@ export const fetchWrapper = {
   delete: _delete,
 };
 
+function get(url) {
+  const requestOptions = {
+    method: 'GET',
+    headers: authHeader(url),
+  };
+  return fetch(url, requestOptions).then(handleResponse);
+}
+
 /*************************helper functions **********************/
 
 // return auth header with jwt if user is logged in and request is to the api url
@@ -24,7 +32,7 @@ function authHeader(url) {
 }
 
 function handleResponse(response) {
-  return response.text().then(text => {
+  return response.text().then((text) => {
     const data = text && JSON.parse(text);
 
     // auto logout if 401 Unauthorized or 403 Forbidden response returned from api
@@ -37,5 +45,5 @@ function handleResponse(response) {
       return Promise.reject(error);
     }
     return data;
-  })
+  });
 }

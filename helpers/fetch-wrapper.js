@@ -35,6 +35,14 @@ function put(url, body) {
   return fetch(url, requestOptions).then(handleResponse);
 }
 
+function _delete(url) {
+  const requestOptions = {
+    method: 'DELETE',
+    headers: authHeader(url)
+  };
+  return fetch(url, requestOptions).then(handleResponse);
+}
+
 /*************************helper functions **********************/
 
 // return auth header with jwt if user is logged in and request is to the api url

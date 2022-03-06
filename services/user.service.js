@@ -31,3 +31,10 @@ function login(username, password) {
       return user;
     });
 }
+
+// remove user from local storage, publish null to user subscribers and redirect to login page
+function logout() {
+  localStorage.removeItem('user');
+  userSubject.next(null);
+  Router.push('/login');
+}

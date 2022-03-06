@@ -20,3 +20,14 @@ export const userService = {
   getAll,
 };
 
+function login(username, password) {
+  return fetchWrapper
+    .post(`${baseUrl}/authenticate`, { username, password })
+    .then((user) => {
+      // publish user to subscribers and store in local storage to stay logged in between page refreshes
+      userSubject.next(user);
+      localStorage.setItem('user', JSON.stringify(user));
+
+      return user;
+    });
+}

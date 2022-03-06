@@ -1,7 +1,6 @@
-import { Container, Grid } from '@mui/material';
+import { Button, Container, Grid } from '@mui/material';
 import Head from 'next/head';
 import ButtonAppBar from '../components/ButtonAppBar';
-import SignIn from '../components/SignIn';
 
 export default function Home() {
   return (
@@ -20,8 +19,13 @@ export default function Home() {
           direction={'column'}
           alignItems={'center'}
           justifyContent={'space-between'}>
-          <SignIn />
-          </Grid>
+          <Button variant='outlined' href='/login'>
+            Login
+          </Button>
+          <Button variant='outlined' href='/signup'>
+            Sign Up
+          </Button>
+        </Grid>
       </Container>
     </>
   );

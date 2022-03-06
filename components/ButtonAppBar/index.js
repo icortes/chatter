@@ -55,7 +55,9 @@ export default function ButtonAppBar() {
               onClose={handleCloseNavMenu}
               sx={{ display: { xs: 'block', md: 'none' } }}>
               <MenuItem onClick={handleCloseNavMenu}>
-                <Typography textAlign={'center'}>Login</Typography>
+                <Typography textAlign={'center'} href='/login'>
+                  Login
+                </Typography>
               </MenuItem>
             </Menu>
           </Box>
@@ -72,7 +74,9 @@ export default function ButtonAppBar() {
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             <Button
               onClick={handleCloseNavMenu}
-              sx={{ my: 2, color: 'white', display: 'block' }}>
+              sx={{ my: 2, color: 'white', display: 'block' }}
+              href='/login'
+            >
               Login
             </Button>
           </Box>

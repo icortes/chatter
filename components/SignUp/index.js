@@ -10,9 +10,36 @@ import {
   Typography,
 } from '@mui/material';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import { useRouter } from 'next/router';
+import { useEffect } from 'react';
+import { useForm } from 'react-hook-form';
+import { userService } from '../../services/user.service';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as Yup from 'yup';
 
 export default function SignUp() {
-  const handleSubmit = (event) => {
+  const router = useRouter();
+
+  useEffect(() => {
+    // redirect to home if already logged in
+    if (userService.userValue) {
+      router.push('/');
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // form validation rules
+  const validationSchema = Yup.object().shape({
+    username: Yup.string().required('Username is required'),
+    password: Yup.string().required('Password is required'),
+  });
+  const formOptions = { resolver: yupResolver(validationSchema) };
+
+  // get functions to build form with useForm() hook
+  const { register, handleSubmit, setError, formState } = useForm(formOptions);
+  const { error } = formState;
+
+  const onSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
 
@@ -40,11 +67,7 @@ export default function SignUp() {
         <Typography component={'h1'} variant='h5'>
           Sign up
         </Typography>
-        <Box
-          component={'form'}
-          noValidate
-          onSubmit={handleSubmit}
-          sx={{ mt: 3 }}>
+        <Box component={'form'} noValidate onSubmit={onSubmit} sx={{ mt: 3 }}>
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>
               <TextField

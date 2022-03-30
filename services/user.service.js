@@ -17,7 +17,8 @@ export const userService = {
   },
   login,
   logout,
-  getAll,
+  signup,
+  getUser,
 };
 
 function login(username, password) {
@@ -32,9 +33,17 @@ function login(username, password) {
     });
 }
 
+function signup(data) {
+  return fetchWrapper.post(`${baseUrl}/users`, { data }).then();
+}
+
 // remove user from local storage, publish null to user subscribers and redirect to login page
 function logout() {
   localStorage.removeItem('user');
   userSubject.next(null);
   Router.push('/login');
+}
+
+function getUser() {
+  return fetchWrapper.get(baseUrl);
 }
